@@ -120,6 +120,8 @@ int main()
 
     //};
 
+    int vertexColorLocation = glGetUniformLocation(shaderProgram, "color");
+
     unsigned int vbo1, vbo2, vao1, vao2;
     glGenBuffers(1, &vbo1);
     glGenBuffers(1, &vbo2);
@@ -154,10 +156,12 @@ int main()
         glUseProgram(shaderProgram);
 
         // Triangle 1
+        glUniform4f(vertexColorLocation, 1.0f, 0.0f, 0.0f, 1.0f);
         glBindVertexArray(vao1);
         glDrawArrays(GL_TRIANGLES, 0, 3);
 
         // Triangle 2
+        glUniform4f(vertexColorLocation, 1.0f, 1.0f, 0.0f, 1.0f);
         glBindVertexArray(vao2);
         glDrawArrays(GL_TRIANGLES, 0, 3);
 
